@@ -1,48 +1,32 @@
-/*********************************************************************
- * Demo for SSD1306 I2C driver for Raspberry Pi
- *********************************************************************/
+/******
+Demo for ssd1306 i2c driver for  Raspberry Pi 
+******/
+#include <stdio.h>
+#include "ssd1306_i2c.h"
+#include "time.h"
+#include <unistd.h>
 
-#include <signal.h>
-#include <stdlib.h>      // exit
-#include <unistd.h>      // sleep, usleep
-#include "ssd1306_i2c.h" // LCD_Display, ssd1306_begin
 
-void sig_handler(int signum) // Return type of the handler function should be void
+
+int main(void) 
 {
-  switch (signum)
+    unsigned short int count=0;
+    unsigned short int sleeptime=5;
+
+    ssd1306_begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS);	//LCD Screen initialization
+    if(i2cd<0)
+    {
+        printf("I2C device failed to open\r\n");
+        return 0;
+    }
+    usleep(150000);												//Short delay Ensure the normal response of the lower function
+    FirstGetIpAddress();										//Get IP address
+
+  for(;;)
   {
-  case SIGHUP:
-    OLED_Clear();
-    exit(0);
-  case SIGINT:
-    OLED_Clear();
-    exit(0);
-  case SIGTERM:
-    OLED_Clear();
-    exit(0);
-  default:
-    break;
-  }
-}
-
-int main(void)
-{
-  unsigned short int count = 0;
-
-  signal(SIGHUP, sig_handler);  // Register signal handler (can't catch SIGKILL or SIGSTOP)
-  signal(SIGINT, sig_handler);  // Register signal handler (can't catch SIGKILL or SIGSTOP)
-  signal(SIGTERM, sig_handler); // Register signal handler (can't catch SIGKILL or SIGSTOP)
-
-  ssd1306_begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS); // LCD Screen initialization
-  usleep(150000);                                           // Short delay to ensure the normal response of the lower functions
-
-  // Loop forever
-  for (;;)
-  {
-    LCD_Display(count);
-    sleep(1);
+    LCD_Display(count, sleeptime);
     count++;
-    if (count > 2)
+    if (count > 5)
     {
       count = 0;
     }
