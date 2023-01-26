@@ -1,5 +1,18 @@
 # U6143_ssd1306
 
+SSD1306 Modified Driver and Installer Script for UCTRONICS U6143 Raspberry Pi Rackmount Case. Modified source project to display temps in Celsius and dynamically configure system hostname in header file using installer script. Installer script also configures systemd rc-local functionality and enables OLED screen using the modified parameters at boot.
+
+##  Installing
+Download installer script, set executable, and run with Bash: For now - run as root!
+```bash
+sudo -i
+wget https://raw.githubusercontent.com/SportzDigital/U6143_ssd1306/master/install.sh
+chmod +x install.sh
+./install.sh
+```
+
+# Original Project Readme
+
 ##  I2C
 Begin by enabling the I2C interface:
 
