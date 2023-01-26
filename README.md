@@ -22,8 +22,9 @@ Clone the project
 git clone git@github.com:SportzDigital/U6143_ssd1306.git
 ```
 
-Set the installer script to be executable, and run with Bash
+Change directory, set the installer script to be executable, and run with Bash
 ```bash
+cd U6143_ssd1306
 chmod +x install.sh
 ./install.sh
 ```
