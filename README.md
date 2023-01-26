@@ -18,7 +18,7 @@ sudo apt install git wiringpi
 
 ##  Clone U6143_ssd1306 library 
 ```bash
-git clone https://github.com/UCTRONICS/U6143_ssd1306.git
+git clone git@github.com:SportzDigital/U6143_ssd1306.git
 ```
 
 ## Compile 
