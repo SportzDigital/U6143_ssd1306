@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt -y install make gcc
 sudo mkdir -p /opt/lcd
-sudo git clone git@github.com:SportzDigital/U6143_ssd1306.git /opt/lcd/U6143_ssd1306
+sudo cp -r ./U6143_ssd1306 /opt/lcd/U6143_ssd1306
 sudo cat <<EOF >> /lib/systemd/system/rc-local.service
 
 [Install]
